@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/webvr/static/css/main.b100e6da.chunk.css",
+    "main.js": "/webvr/static/js/main.d0d830c1.chunk.js",
+    "main.js.map": "/webvr/static/js/main.d0d830c1.chunk.js.map",
+    "runtime-main.js": "/webvr/static/js/runtime-main.364ec6ae.js",
+    "runtime-main.js.map": "/webvr/static/js/runtime-main.364ec6ae.js.map",
+    "static/js/2.2aac7587.chunk.js": "/webvr/static/js/2.2aac7587.chunk.js",
+    "static/js/2.2aac7587.chunk.js.map": "/webvr/static/js/2.2aac7587.chunk.js.map",
+    "index.html": "/webvr/index.html",
+    "precache-manifest.9d5a2e76e8c971c9e8f01122e3b6e0fd.js": "/webvr/precache-manifest.9d5a2e76e8c971c9e8f01122e3b6e0fd.js",
+    "service-worker.js": "/webvr/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/webvr/static/css/main.b100e6da.chunk.css.map",
+    "static/media/logo.svg": "/webvr/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.364ec6ae.js",
+    "static/js/2.2aac7587.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.d0d830c1.chunk.js"
+  ]
+}
