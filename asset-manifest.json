@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/webvr/static/css/main.b100e6da.chunk.css",
-    "main.js": "/webvr/static/js/main.0a08562c.chunk.js",
-    "main.js.map": "/webvr/static/js/main.0a08562c.chunk.js.map",
+    "main.js": "/webvr/static/js/main.b56e87b2.chunk.js",
+    "main.js.map": "/webvr/static/js/main.b56e87b2.chunk.js.map",
     "runtime-main.js": "/webvr/static/js/runtime-main.364ec6ae.js",
     "runtime-main.js.map": "/webvr/static/js/runtime-main.364ec6ae.js.map",
     "static/js/2.e7b3cf8b.chunk.js": "/webvr/static/js/2.e7b3cf8b.chunk.js",
     "static/js/2.e7b3cf8b.chunk.js.map": "/webvr/static/js/2.e7b3cf8b.chunk.js.map",
     "index.html": "/webvr/index.html",
-    "precache-manifest.5a83a8d7c915a10750de3089ec1b63c9.js": "/webvr/precache-manifest.5a83a8d7c915a10750de3089ec1b63c9.js",
+    "precache-manifest.ea80067705f9992d1b94ef9ee550a83a.js": "/webvr/precache-manifest.ea80067705f9992d1b94ef9ee550a83a.js",
     "service-worker.js": "/webvr/service-worker.js",
     "static/css/main.b100e6da.chunk.css.map": "/webvr/static/css/main.b100e6da.chunk.css.map",
     "static/media/logo.svg": "/webvr/static/media/logo.25bf045c.svg"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.364ec6ae.js",
     "static/js/2.e7b3cf8b.chunk.js",
     "static/css/main.b100e6da.chunk.css",
-    "static/js/main.0a08562c.chunk.js"
+    "static/js/main.b56e87b2.chunk.js"
   ]
 }
