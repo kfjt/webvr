@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import 'aframe'
 
 const VRScene = () => {
   const videoEl = useRef()
