@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/webvr/precache-manifest.5f4f3177de4a02f93cc43d744d43edcf.js"
+  "/webvr/precache-manifest.d4596e305373006a92d920494ed26a76.js"
 );
 
 self.addEventListener('message', (event) => {
