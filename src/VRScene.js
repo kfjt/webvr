@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
-// god is now here : https://wgld.org/
-
 const Video = styled.video`
   position: absolute
 `
@@ -37,8 +35,22 @@ const useCanvasSize = ({ refCanvas, size }) => {
 const use2dText = ({ refCanvas, text, coord }) => {
   useEffect(() => {
     const canvas = refCanvas.current
-    const context = canvas.getContext("2d")
+    const context = canvas.getContext('2d')
     context.fillText(text, coord.x, coord.y, 40)
+  })
+}
+
+const glInit = gl => {
+  gl.clearColor(0.0, 0.0, 0.0, 0.5)
+  gl.clear(gl.COLOR_BUFFER_BIT)
+}
+
+// god is now here : https://wgld.org/
+const useGl = ({ refCanvas }) => {
+  useEffect(() => {
+    const canvas = refCanvas.current
+    const gl = canvas.getContext('webgl2')
+    glInit(gl)
   })
 }
 
@@ -51,7 +63,7 @@ const VRScene = () => {
   useVideo({ refVideo: refV, setWidth, setHeight })
   useCanvasSize({ refCanvas: refC1, size: { width, height } })
   useCanvasSize({ refCanvas: refC2, size: { width, height } })
-  use2dText({ refCanvas: refC1, text: 'Hello', coord: { x: 20, y: 20 } })
+  useGl({ refCanvas: refC1 })
   use2dText({ refCanvas: refC2, text: 'World', coord: { x: 20, y: 40 } })
 
   return (
