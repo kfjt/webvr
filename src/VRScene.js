@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 
 const Video = styled.video`
   position: absolute
@@ -54,23 +55,59 @@ const useGl = ({ refCanvas }) => {
   })
 }
 
+const useThree = ({ refCanvas }) => {
+  const scene = new Scene()
+  const camera = new PerspectiveCamera(90)
+  const geometry = new BoxGeometry(1, 1, 1)
+  const material = new MeshBasicMaterial({ color: 0x00ff00 })
+  const cube = new Mesh(geometry, material)
+  scene.add(cube)
+  camera.position.z = 5
+
+  useEffect(() => {
+    const canvas = refCanvas.current
+    // const gl = canvas.getContext('webgl2')
+    // glInit(gl)
+    const renderer = new WebGLRenderer({ canvas, alpha: true })
+    renderer.setSize(canvas.width, canvas.height)
+
+    const animate = () => {
+      requestAnimationFrame(animate)
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render(scene, camera)
+    }
+    animate()
+  })
+}
+
 const VRScene = () => {
   const refV = useRef()
   const refC1 = useRef()
   const refC2 = useRef()
+  const refC3 = useRef()
   const [width, setWidth] = useState()
   const [height, setHeight] = useState()
+
   useVideo({ refVideo: refV, setWidth, setHeight })
+
   useCanvasSize({ refCanvas: refC1, size: { width, height } })
-  useCanvasSize({ refCanvas: refC2, size: { width, height } })
   useGl({ refCanvas: refC1 })
+
+  useCanvasSize({ refCanvas: refC2, size: { width, height } })
   use2dText({ refCanvas: refC2, text: 'World', coord: { x: 20, y: 40 } })
+
+  useCanvasSize({ refCanvas: refC3, size: { width, height } })
+  useThree({ refCanvas: refC3 })
 
   return (
     <div className='vrscene'>
       <Video ref={refV} />
       <Canvas ref={refC1} />
       <Canvas ref={refC2} />
+      <Canvas ref={refC3} />
     </div>
   )
 }
