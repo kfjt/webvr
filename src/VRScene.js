@@ -2,12 +2,19 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 
+const Div = styled.div`
+  width: ${props => props.width || 'auto'}
+  height: ${props => props.height || 'auto'}
+`
+
 const Video = styled.video`
   position: absolute
 `
 
 const Canvas = styled.canvas`
   position: absolute
+  width: ${props => props.width || 'auto'}
+  height: ${props => props.height || 'auto'}
 `
 
 const useVideo = ({ refVideo, setWidth, setHeight }) => {
@@ -16,20 +23,14 @@ const useVideo = ({ refVideo, setWidth, setHeight }) => {
     const setSrcObject = async () => {
       video.srcObject = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
     }
-    setSrcObject()
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      setSrcObject()
+    }
     video.addEventListener('loadeddata', video.play)
     video.addEventListener('loadedmetadata', () => {
       setWidth(video.videoWidth)
       setHeight(video.videoHeight)
     })
-  })
-}
-
-const useCanvasSize = ({ refCanvas, size }) => {
-  useEffect(() => {
-    const canvas = refCanvas.current
-    canvas.width = size.width
-    canvas.height = size.height
   })
 }
 
@@ -51,7 +52,9 @@ const useGl = ({ refCanvas }) => {
   useEffect(() => {
     const canvas = refCanvas.current
     const gl = canvas.getContext('webgl2')
-    glInit(gl)
+    if (gl) {
+      glInit(gl)
+    }
   })
 }
 
@@ -66,8 +69,6 @@ const useThree = ({ refCanvas }) => {
 
   useEffect(() => {
     const canvas = refCanvas.current
-    // const gl = canvas.getContext('webgl2')
-    // glInit(gl)
     const renderer = new WebGLRenderer({ canvas, alpha: true })
     renderer.setSize(canvas.width, canvas.height)
 
@@ -92,23 +93,17 @@ const VRScene = () => {
   const [height, setHeight] = useState()
 
   useVideo({ refVideo: refV, setWidth, setHeight })
-
-  useCanvasSize({ refCanvas: refC1, size: { width, height } })
   useGl({ refCanvas: refC1 })
-
-  useCanvasSize({ refCanvas: refC2, size: { width, height } })
   use2dText({ refCanvas: refC2, text: 'World', coord: { x: 20, y: 40 } })
-
-  useCanvasSize({ refCanvas: refC3, size: { width, height } })
   useThree({ refCanvas: refC3 })
 
   return (
-    <div className='vrscene'>
+    <Div className='vrscene' width={width} height={height}>
       <Video ref={refV} />
-      <Canvas ref={refC1} />
-      <Canvas ref={refC2} />
-      <Canvas ref={refC3} />
-    </div>
+      <Canvas ref={refC1} width={width} height={height} />
+      <Canvas ref={refC2} width={width} height={height} />
+      <Canvas ref={refC3} width={width} height={height} />
+    </Div>
   )
 }
 
