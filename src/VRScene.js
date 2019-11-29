@@ -2,13 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 
+import { Video, useVideo } from './Video'
+
 const Div = styled.div`
   width: ${props => `${props.width}px` || 'auto'}
   height: ${props => `${props.height}px` || 'auto'}
-`
-
-const Video = styled.video`
-  position: absolute
 `
 
 const Canvas = styled.canvas`
@@ -17,7 +15,7 @@ const Canvas = styled.canvas`
   height: ${props => `${props.height}px` || 'auto'}
 `
 
-const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false'>{props.children}</a-scene>
+const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false' keyboard-shortcuts='enterVR: false' inspector='false' debug='false' stats >{props.children}</a-scene>
 
 const AScene = styled(rawAScene)`
   a-scene {
@@ -31,26 +29,9 @@ const AFrameScene = ({ width, height }) => {
 
   return (
     <AScene width={width} height={height}>
-      <a-box position="0 1 -4" color="yellow"></a-box>
+      <a-box position='0 1 -4' color='yellow'></a-box>
     </AScene>
   )
-}
-
-const useVideo = ({ refVideo, setWidth, setHeight }) => {
-  useEffect(() => {
-    const video = refVideo.current
-    const setSrcObject = async () => {
-      video.srcObject = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-    }
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      setSrcObject()
-    }
-    video.addEventListener('loadeddata', video.play)
-    video.addEventListener('loadedmetadata', () => {
-      setWidth(video.videoWidth)
-      setHeight(video.videoHeight)
-    })
-  })
 }
 
 const use2dText = ({ refCanvas, text, coord }) => {
