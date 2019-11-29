@@ -17,13 +17,24 @@ const Canvas = styled.canvas`
   height: ${props => `${props.height}px` || 'auto'}
 `
 
-const rawAScene = () => <a-scene embedded><a-box position="0 1 -4" color="yellow"></a-box></a-scene>
+const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false'>{props.children}</a-scene>
+
 const AScene = styled(rawAScene)`
   a-scene {
     width: ${props => `${props.width}px` || 'auto'}
     height: ${props => `${props.height}px` || 'auto'}
   }
 `
+
+const AFrameScene = ({ width, height }) => {
+  if (!height) return <div />
+
+  return (
+    <AScene width={width} height={height}>
+      <a-box position="0 1 -4" color="yellow"></a-box>
+    </AScene>
+  )
+}
 
 const useVideo = ({ refVideo, setWidth, setHeight }) => {
   useEffect(() => {
@@ -111,7 +122,7 @@ const VRScene = () => {
       <Canvas ref={refC1} width={width} height={height} />
       <Canvas ref={refC2} width={width} height={height} />
       <Canvas ref={refC3} width={width} height={height} />
-      {height ? <AScene width={width} height={height} /> : <div />}
+      <AFrameScene width={width} height={height}></AFrameScene>
     </Div>
   )
 }
