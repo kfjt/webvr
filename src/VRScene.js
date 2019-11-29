@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from 'three'
 
 const Div = styled.div`
-  width: ${props => props.width || 'auto'}
-  height: ${props => props.height || 'auto'}
+  width: ${props => `${props.width}px` || 'auto'}
+  height: ${props => `${props.height}px` || 'auto'}
 `
 
 const Video = styled.video`
@@ -13,8 +13,16 @@ const Video = styled.video`
 
 const Canvas = styled.canvas`
   position: absolute
-  width: ${props => props.width || 'auto'}
-  height: ${props => props.height || 'auto'}
+  width: ${props => `${props.width}px` || 'auto'}
+  height: ${props => `${props.height}px` || 'auto'}
+`
+
+const rawAScene = () => <a-scene embedded><a-box position="0 1 -4" color="yellow"></a-box></a-scene>
+const AScene = styled(rawAScene)`
+  a-scene {
+    width: ${props => `${props.width}px` || 'auto'}
+    height: ${props => `${props.height}px` || 'auto'}
+  }
 `
 
 const useVideo = ({ refVideo, setWidth, setHeight }) => {
@@ -89,6 +97,7 @@ const VRScene = () => {
   const refC1 = useRef()
   const refC2 = useRef()
   const refC3 = useRef()
+  const refC4 = useRef()
   const [width, setWidth] = useState()
   const [height, setHeight] = useState()
 
@@ -103,6 +112,8 @@ const VRScene = () => {
       <Canvas ref={refC1} width={width} height={height} />
       <Canvas ref={refC2} width={width} height={height} />
       <Canvas ref={refC3} width={width} height={height} />
+      <Canvas ref={refC4} width={width} height={height} />
+      <AScene canvas={refC4} width={width} height={height} />
     </Div>
   )
 }
