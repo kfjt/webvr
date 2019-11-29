@@ -97,7 +97,6 @@ const VRScene = () => {
   const refC1 = useRef()
   const refC2 = useRef()
   const refC3 = useRef()
-  const refC4 = useRef()
   const [width, setWidth] = useState()
   const [height, setHeight] = useState()
 
@@ -112,8 +111,7 @@ const VRScene = () => {
       <Canvas ref={refC1} width={width} height={height} />
       <Canvas ref={refC2} width={width} height={height} />
       <Canvas ref={refC3} width={width} height={height} />
-      <Canvas ref={refC4} width={width} height={height} />
-      <AScene canvas={refC4} width={width} height={height} />
+      {height ? <AScene width={width} height={height} /> : <div />}
     </Div>
   )
 }
