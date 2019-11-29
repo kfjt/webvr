@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false' keyboard-shortcuts='enterVR: false' inspector='false' debug='false' stats >{props.children}</a-scene>
+import BowlingGlb from './asset/bowling.glb'
+
+const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false' keyboard-shortcuts='enterVR: false' stats >{props.children}</a-scene>
 
 const AScene = styled(rawAScene)`
   a-scene {
@@ -15,7 +17,8 @@ const AFrameScene = ({ width, height }) => {
 
   return (
     <AScene width={width} height={height}>
-      <a-box position='0 1 -4' color='yellow'></a-box>
+      <a-entity position='-0.5 1 -3' scale='0.01 0.01 0.01' rotation='90 0 0' gltf-model={BowlingGlb}></a-entity>
+      <a-box position='1 1 -4' color='yellow'></a-box>
     </AScene>
   )
 }
