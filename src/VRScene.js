@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Video, useVideo } from './Video'
 // import { use2dText, useGl, useThree } from './myEffect'
 import { AFrameScene } from './Aframe'
+import {Accelerometer} from './Accelerometer'
 
 const Div = styled.div`
   width: ${props => props.width}px
@@ -36,6 +37,7 @@ const VRScene = () => {
       {/* <Canvas ref={refC2} width={width} height={height} /> */}
       {/* <Canvas ref={refC3} width={width} height={height} /> */}
       <AFrameScene width={width} height={height}></AFrameScene>
+      <Accelerometer />
     </Div>
   )
 }
