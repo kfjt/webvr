@@ -25,7 +25,7 @@ const VRScene = () => {
   const [width, setWidth] = useState()
   const [height, setHeight] = useState()
 
-  useVideo({ refVideo: refV, setWidth, setHeight })
+  // useVideo({ refVideo: refV, setWidth, setHeight })
   // useGl({ refCanvas: refC1 })
   // use2dText({ refCanvas: refC2, text: 'Hello World', coord: { x: 20, y: 40 } })
   // useThree({ refCanvas: refC3 })
@@ -33,11 +33,11 @@ const VRScene = () => {
   return (
     <Div className='vrscene' width={width} height={height}>
       <Accelerometer />
-      <Video ref={refV} />
+      {/* <Video ref={refV} /> */}
       {/* <Canvas ref={refC1} width={width} height={height} /> */}
       {/* <Canvas ref={refC2} width={width} height={height} /> */}
       {/* <Canvas ref={refC3} width={width} height={height} /> */}
-      <AFrameScene width={width} height={height}></AFrameScene>
+      {/* <AFrameScene width={width} height={height}></AFrameScene> */}
     </Div>
   )
 }
