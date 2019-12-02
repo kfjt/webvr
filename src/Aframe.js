@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 // import BowlingGlb from './asset/bowling.glb'
 
-const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false' keyboard-shortcuts='enterVR: false' stats >{props.children}</a-scene>
+// const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false' keyboard-shortcuts='enterVR: false' stats >{props.children}</a-scene>
+const rawAScene = props => <a-scene embedded >{props.children}</a-scene>
 
 const AScene = styled(rawAScene)`
   a-scene {
@@ -15,7 +16,6 @@ const AScene = styled(rawAScene)`
 const AFrameScene = ({ width, height, acceleration }) => {
   if (!height) return <div />
 
-  console.log(acceleration)
   const { x, y, z } = acceleration
   return (
     <AScene width={width} height={height}>
