@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export const Video = styled.video`
   position: absolute
+  display: none
 `
 
 export const useVideo = ({ refVideo, setWidth, setHeight }) => {
