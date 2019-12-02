@@ -32,12 +32,12 @@ const VRScene = () => {
 
   return (
     <Div className='vrscene' width={width} height={height}>
+      <Accelerometer />
       <Video ref={refV} />
       {/* <Canvas ref={refC1} width={width} height={height} /> */}
       {/* <Canvas ref={refC2} width={width} height={height} /> */}
       {/* <Canvas ref={refC3} width={width} height={height} /> */}
       <AFrameScene width={width} height={height}></AFrameScene>
-      <Accelerometer />
     </Div>
   )
 }
