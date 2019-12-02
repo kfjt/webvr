@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dbe19b0a01efe3bc6957e808129d5764",
+    "revision": "1a625c45f896842e4566727a07871822",
     "url": "/webvr/index.html"
   },
   {
-    "revision": "bf30018f918292f0f26e",
+    "revision": "e599d0c5af333a7c04a6",
     "url": "/webvr/static/css/main.34de6062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/webvr/static/js/2.2a39876f.chunk.js"
   },
   {
-    "revision": "bf30018f918292f0f26e",
-    "url": "/webvr/static/js/main.26002bce.chunk.js"
+    "revision": "e599d0c5af333a7c04a6",
+    "url": "/webvr/static/js/main.df98cd7e.chunk.js"
   },
   {
     "revision": "7a1c24007f3062c1954b",
