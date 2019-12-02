@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import BowlingGlb from './asset/bowling.glb'
+// import BowlingGlb from './asset/bowling.glb'
 
 const rawAScene = props => <a-scene embedded vr-mode-ui='enabled: false' keyboard-shortcuts='enterVR: false' stats >{props.children}</a-scene>
 
@@ -20,8 +20,8 @@ const AFrameScene = ({ width, height }) => {
       <a-entity position='0 1.6 0'>
         <a-entity camera look-controls></a-entity>
       </a-entity>
-      <a-entity position='-0.5 1 -3' scale='0.01 0.01 0.01' rotation='90 0 0' gltf-model={BowlingGlb}></a-entity>
-      <a-box position='1 1 -4' color='yellow'></a-box>
+      {/* <a-entity position='-0.5 1 -3' scale='0.01 0.01 0.01' rotation='90 0 0' gltf-model={BowlingGlb}></a-entity> */}
+      {/* <a-box position='1 1 -4' color='yellow'></a-box> */}
       <a-entity geometry='primitive: cone; radiusBottom: 0.1; radiusTop: 0.01' material='color: yellow' position='0 0 0'></a-entity>
       <a-entity geometry='primitive: cone; radiusBottom: 0.1; radiusTop: 0.01' material='color: yellow' position='1 0 0'></a-entity>
       <a-entity geometry='primitive: cone; radiusBottom: 0.1; radiusTop: 0.01' material='color: yellow' position='2 0 0'></a-entity>
