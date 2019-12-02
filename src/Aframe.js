@@ -12,12 +12,12 @@ const AScene = styled(rawAScene)`
   }
 `
 
-const AFrameScene = ({ width, height }) => {
+const AFrameScene = ({ width, height, acceleration }) => {
   if (!height) return <div />
 
   return (
     <AScene width={width} height={height}>
-      <a-entity position='0 1.6 0'>
+      <a-entity position={acceleration}>
         <a-entity camera look-controls></a-entity>
       </a-entity>
       {/* <a-entity position='-0.5 1 -3' scale='0.01 0.01 0.01' rotation='90 0 0' gltf-model={BowlingGlb}></a-entity> */}
